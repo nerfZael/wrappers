@@ -1,7 +1,7 @@
 import * as awilix from "awilix";
 import { NameAndRegistrationPair } from "awilix";
 import { WrappersConfig } from "../config/WrappersConfig";
-import { FileService } from "../FileService";
+import { WrapperService } from "../WrapperService";
 
 export const buildDependencyContainer = async(
   extensionsAndOverrides?: NameAndRegistrationPair<unknown>
@@ -12,7 +12,7 @@ export const buildDependencyContainer = async(
 
   container.register({
     wrappersConfig: awilix.asClass(WrappersConfig).singleton(),
-    fileService: awilix.asClass(FileService).singleton(),
+    wrapperService: awilix.asClass(WrapperService).singleton(),
     ...extensionsAndOverrides,
   });
 

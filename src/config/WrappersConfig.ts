@@ -1,3 +1,3 @@
 export class WrappersConfig {
-  gatewayURI = process.env.WRAPPERS_GATEWAY ?? "https://localhost:8080";
+  gatewayURI = process.env.WRAPPERS_GATEWAY ?? "http://ipfs.wrappers.io";
 }
