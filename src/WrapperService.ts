@@ -26,15 +26,17 @@ export class WrapperService {
       resolvedPath = path.join(resolvedPath, "build");
     }
 
+    console.log("resolverd", resolvedPath);
+
     const data = new FormData();
 
-    const files = fs.readdirSync(buildPath);
-    console.log(buildPath);
+    const files = fs.readdirSync(resolvedPath);
+    console.log(resolvedPath);
 
     for(const file of files) {
       console.log(file);
 
-      const filePath = path.join(buildPath, file);
+      const filePath = path.join(resolvedPath, file);
 
       const buffer = fs.readFileSync(filePath);
       data.append('files', buffer, { filename: file });
