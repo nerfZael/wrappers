@@ -17,14 +17,13 @@ export class WrapperService {
 
   async addWrapper({ onlyHash, buildPath }: { onlyHash: boolean, buildPath: string }) {
     let resolvedPath = path.resolve(buildPath);
-    if(!this.isValidBuildDir(resolvedPath)) {
-      resolvedPath = path.join(resolvedPath, "build");
+    if(!this.isValidWrapDir(resolvedPath)) {
+      console.error("Could not find the build directory");
+      return;
+    }
 
-      if(!this.isValidBuildDir(resolvedPath)) {
-        console.error("Could not find the build directory");
-        
-        return;
-      }
+    if(this.isValidWrapDir(path.join(resolvedPath, "build"))) {
+      resolvedPath = path.join(resolvedPath, "build");
     }
 
     const data = new FormData();
@@ -60,7 +59,7 @@ export class WrapperService {
     }
   }
 
-  private isValidBuildDir(buildPath: string): boolean {
+  private isValidWrapDir(buildPath: string): boolean {
     return fs.existsSync(path.join(buildPath, "web3api.yaml"))
       || fs.existsSync(path.join(buildPath, "web3api.yml"));
   }
