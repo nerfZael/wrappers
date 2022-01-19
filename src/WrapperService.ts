@@ -26,8 +26,6 @@ export class WrapperService {
       resolvedPath = path.join(resolvedPath, "build");
     }
 
-    console.log("resolverd", resolvedPath);
-
     const data = new FormData();
 
     const files = fs.readdirSync(resolvedPath);
