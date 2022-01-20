@@ -5,7 +5,7 @@
   "types": "bin/main.d.ts",
   "author": "nerfZael",
   "license": "MIT",
-  "private": false,
+  "private": false, 
   "files": [
     "/bin"
   ],
@@ -23,7 +23,8 @@
     "wrap",
     "ens",
     "polywrapper",
-    "wrapper"
+    "wrapper",
+    "wrappers"
   ],
   "scripts": {
     "build": "tsc --project tsconfig.build.json",
