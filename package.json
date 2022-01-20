@@ -1,11 +1,11 @@
 {
   "name": "@nerfzael/wrappers",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "main": "bin/main.js",
   "types": "bin/main.d.ts",
   "author": "nerfZael",
   "license": "MIT",
-  "private": false, 
+  "private": false,
   "files": [
     "/bin"
   ],
