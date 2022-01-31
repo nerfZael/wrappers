@@ -101,7 +101,7 @@ export class WrapperService {
 
     await tx.wait();
 
-    console.log(`Publish successful!`);
+    console.log(`Publish to "${networkName}" successful!`);
 
     return undefined;
   }
