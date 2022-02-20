@@ -44,13 +44,12 @@ require("custom-env").env("");
     .requiredOption("-d, --domain <string>", "ENS domain")
     .requiredOption("-n, --network <string>", "Network name")
     .option("-p, --path", "Path to the build directory")
-    .option("-o, --only-hash", "Only hash the wrapper")
     .option("-pwd, --password <string>", "Password to the Ethereum wallet")
     .action(async (options) => {
       const domain = options.domain;
      
       const cid: string | undefined = await wrapperService.addWrapper({ 
-        onlyHash: !!options.onlyHash,
+        onlyHash: false,
         buildPath: options.path
           ? options.path
           : process.cwd()
