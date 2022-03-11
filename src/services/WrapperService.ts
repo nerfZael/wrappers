@@ -7,6 +7,7 @@ import { JsonRpcProvider } from "@ethersproject/providers";
 import { WrappersConfig } from "../config/WrappersConfig";
 import { EnsConfig } from "../config/EnsConfig";
 import { ConnectionService } from "./ConnectionService";
+import { isValidWrapDir } from "../utils/isValidWrapperDir";
 const contentHash = require("content-hash");
 const ENS = require("@ensdomains/ensjs");
 
@@ -29,12 +30,12 @@ export class WrapperService {
     console.log(`Publishing build contents to IPFS...`);
     
     let resolvedPath = path.resolve(buildPath);
-    if(!this.isValidWrapDir(resolvedPath)) {
+    if(!isValidWrapDir(resolvedPath)) {
       console.error("Could not find the build directory");
       return;
     }
 
-    if(this.isValidWrapDir(path.join(resolvedPath, "build"))) {
+    if(isValidWrapDir(path.join(resolvedPath, "build"))) {
       resolvedPath = path.join(resolvedPath, "build");
     }
 
@@ -104,10 +105,5 @@ export class WrapperService {
     console.log(`Publish to "${networkName}" successful!`);
 
     return undefined;
-  }
-
-  private isValidWrapDir(buildPath: string): boolean {
-    return fs.existsSync(path.join(buildPath, "web3api.yaml"))
-      || fs.existsSync(path.join(buildPath, "web3api.yml"));
   }
 }
