@@ -26,7 +26,7 @@ require("custom-env").env("");
   program
     .command("ipfs")
     .description("Publish the wrapper to the wrap gateway")
-    .option("-p, --path", "Path to the build directory")
+    .option("-p, --path <string>", "Path to the build directory")
     .option("-o, --only-hash", "Only hash the wrapper")
     .action(async (options) => {
       //TODO: Check if the build contents are a valid wrapper
@@ -43,7 +43,7 @@ require("custom-env").env("");
     .description("Publish the wrapper to the wrap gateway and ENS")
     .requiredOption("-d, --domain <string>", "ENS domain")
     .requiredOption("-n, --network <string>", "Network name")
-    .option("-p, --path", "Path to the build directory")
+    .option("-p, --path <string>", "Path to the build directory")
     .option("-pwd, --password <string>", "Password to the Ethereum wallet")
     .action(async (options) => {
       const domain = options.domain;
